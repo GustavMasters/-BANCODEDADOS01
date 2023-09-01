@@ -1,21 +1,15 @@
-package aula;
-
-import java.io.IOException;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+package aula.jdbc;
 
 public class Main {
-
-	public static void main(String[] args) throws IOException{
-		
-		Document doc = Jsoup.connect("https://pt.wikipedia.org/wiki/Fórmula_1").get();
-		
-		System.out.println(doc); // mostra o codigo HTML inteiro da pagina;
-		
-		System.out.println(doc.getElementsByTag("p")); // seleciona apenas os paragrafos;
-		
-		System.out.println(doc.getElementsContainingOwnText("o verde para as equipes inglesas,"));// filtra o paragrafo que contem o trecho da frase descrita;
-		
+	
+	public static void main(String[] args) {
+		try {
+			 Class.forName("org.postgresql.Driver");
+			 System.out.println("Driver carregado com sucesso!");
+			 }
+			 catch (Exception ex) {
+			 System.out.println("Driver nao pode ser carregado!");
+			 }
 	}
 
 }
